@@ -14,7 +14,7 @@ class MoneyTest {
 		Dollar money = new Dollar(5);
 
 		// when
-		Dollar product = money.multiply(2);
+		Dollar product = money.multiplyBy(2);
 
 		// then
 		assertEquals(10, product.getAmount());
@@ -33,9 +33,9 @@ class MoneyTest {
 		Dollar money = new Dollar(DOLLARS_AMOUNT);
 
 		// when
-		Dollar product = money.multiply(MULTIPLICATION_FACTOR_1);
+		Dollar product = money.multiplyBy(MULTIPLICATION_FACTOR_1);
 		int actual1 = product.getAmount();
-		product = money.multiply(MULTIPLICATION_FACTOR_2);
+		product = money.multiplyBy(MULTIPLICATION_FACTOR_2);
 		int actual2 = product.getAmount();
 
 		// then

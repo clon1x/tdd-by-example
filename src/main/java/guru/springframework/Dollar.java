@@ -8,7 +8,7 @@ public class Dollar {
 		this.amount = amount;
 	}
 
-	public Dollar multiply(int factor) {
+	public Dollar multiplyBy(int factor) {
 		return new Dollar(getAmount() * factor);
 	}
 
