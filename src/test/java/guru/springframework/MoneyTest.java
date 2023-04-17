@@ -44,5 +44,19 @@ class MoneyTest {
 				() -> assertEquals(EXPECTED_2, actual2));
 
 	}
+	
+	@Test
+	void should_ConsiderDollarsAreEqual_When_ValuesAreEqual() {
+		
+		// given
+		final int VALUE = 1;
+		Dollar dollar1 = new Dollar(VALUE);
+		Dollar dollar2 = new Dollar(VALUE);
+		
+		// when
+		
+		// then
+		assertEquals(dollar1, dollar2);
+	}
 
 }
