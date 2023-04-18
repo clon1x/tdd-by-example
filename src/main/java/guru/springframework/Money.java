@@ -8,6 +8,10 @@ public abstract class Money {
 		return new Dollar(amount);
 	}
 	
+	public static Franc franc(int amount) {
+		return new Franc(amount);
+	}
+	
 	public abstract Money multiplyBy(int factor);
 	
 	@Override

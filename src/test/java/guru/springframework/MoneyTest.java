@@ -12,7 +12,7 @@ class MoneyTest {
 		// given 
 		final int AMOUNT = 6;
 		Money money1 = Money.dollar(AMOUNT);
-		Money money2 = new Franc(AMOUNT);
+		Money money2 = Money.franc(AMOUNT);
 		
 		// when
 		boolean actual = money1.equals(money2);

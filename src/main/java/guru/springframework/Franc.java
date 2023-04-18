@@ -7,7 +7,7 @@ public class Franc extends Money {
 	}
 
 	public Money multiplyBy(int factor) {
-		return new Franc(amount * factor);
+		return Money.franc(amount * factor);
 	}
 
 }
