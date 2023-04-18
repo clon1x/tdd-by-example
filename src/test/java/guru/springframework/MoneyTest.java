@@ -21,5 +21,20 @@ class MoneyTest {
 		assertFalse(actual);
 		
 	}
+	
+	@Test
+	void should_ReturnCorrectCurrency_When_ClassIsDollar() {
+		
+		// given
+		Money dollar = Money.dollar(1);
+		String expected = "USD";
+		
+		// when
+		String actual = dollar.getCurrency();
+		
+		// then
+		assertEquals(expected, actual);		
+		
+	}
 
 }
