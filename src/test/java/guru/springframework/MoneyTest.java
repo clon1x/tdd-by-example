@@ -2,6 +2,7 @@ package guru.springframework;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -51,12 +52,26 @@ class MoneyTest {
 		// given
 		final int VALUE = 1;
 		Dollar dollar1 = new Dollar(VALUE);
-		Dollar dollar2 = new Dollar(VALUE);
 		
 		// when
+		Dollar dollar2 = new Dollar(VALUE);
 		
 		// then
 		assertEquals(dollar1, dollar2);
 	}
 
+	@Test
+	void should_ConsiderDollarsNotEqual_When_DifferentValues() {
+		
+		// given
+		final int VALUE = 1;
+		Dollar dollar1 = new Dollar(VALUE);
+		
+		// when
+		Dollar dollar2 = new Dollar(VALUE + 1);
+		
+		// then
+		assertNotEquals(dollar1, dollar2);
+	}
+	
 }
