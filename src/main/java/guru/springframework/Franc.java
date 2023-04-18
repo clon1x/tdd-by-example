@@ -12,8 +12,7 @@ public class Franc extends Money {
 
 	@Override
 	public String getCurrency() {
-		// TODO Auto-generated method stub
-		return null;
+		return "CHF";
 	}
 
 }
