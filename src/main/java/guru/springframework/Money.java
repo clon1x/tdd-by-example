@@ -18,10 +18,6 @@ public class Money {
 		return new Franc(amount, "CHF");
 	}
 	
-	public Money multiplyBy(int factor) {
-		return null;
-	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		Money money = (Money) obj;
@@ -35,6 +31,10 @@ public class Money {
 	@Override
 	public String toString() {
 		return "Money [amount=" + amount + ", currency=" + currency + "]";
+	}
+
+	public Money multiplyBy(int factor) {
+		return new Money(amount * factor, currency);
 	}
 	
 }
