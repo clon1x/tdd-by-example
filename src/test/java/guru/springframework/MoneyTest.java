@@ -12,13 +12,14 @@ class MoneyTest {
 	void should_GiveCorrectAmount_when_MultipliedByFactor() {
 
 		// given
-		Dollar money = new Dollar(5);
+		final int AMOUNT = 5;
+		Dollar money = new Dollar(AMOUNT);
 
 		// when
 		Dollar product = money.multiplyBy(2);
 
 		// then
-		assertEquals(10, product.getAmount());
+		assertEquals(new Dollar(AMOUNT * 2), product);
 
 	}
 
@@ -28,21 +29,19 @@ class MoneyTest {
 		// given
 		final int DOLLARS_AMOUNT = 5;
 		final int MULTIPLICATION_FACTOR_1 = 2;
-		final int EXPECTED_1 = 10;
+		final Dollar EXPECTED_1 = new Dollar(10);
 		final int MULTIPLICATION_FACTOR_2 = 3;
-		final int EXPECTED_2 = 15;
+		final Dollar EXPECTED_2 = new Dollar(15);
 		Dollar money = new Dollar(DOLLARS_AMOUNT);
 
 		// when
-		Dollar product = money.multiplyBy(MULTIPLICATION_FACTOR_1);
-		int actual1 = product.getAmount();
-		product = money.multiplyBy(MULTIPLICATION_FACTOR_2);
-		int actual2 = product.getAmount();
+		Dollar product1 = money.multiplyBy(MULTIPLICATION_FACTOR_1);
+		Dollar product2 = money.multiplyBy(MULTIPLICATION_FACTOR_2);
 
 		// then
 		assertAll(
-				() -> assertEquals(EXPECTED_1, actual1), 
-				() -> assertEquals(EXPECTED_2, actual2));
+				() -> assertEquals(EXPECTED_1, product1), 
+				() -> assertEquals(EXPECTED_2, product2));
 
 	}
 	
@@ -51,13 +50,13 @@ class MoneyTest {
 		
 		// given
 		final int VALUE = 1;
-		Dollar dollar1 = new Dollar(VALUE);
+		final Dollar EXPECTED = new Dollar(VALUE);
 		
 		// when
-		Dollar dollar2 = new Dollar(VALUE);
+		Dollar actual = new Dollar(VALUE);
 		
 		// then
-		assertEquals(dollar1, dollar2);
+		assertEquals(EXPECTED, actual);
 	}
 
 	@Test
@@ -65,7 +64,7 @@ class MoneyTest {
 		
 		// given
 		final int VALUE = 1;
-		Dollar dollar1 = new Dollar(VALUE);
+		final Dollar dollar1 = new Dollar(VALUE);
 		
 		// when
 		Dollar dollar2 = new Dollar(VALUE + 1);

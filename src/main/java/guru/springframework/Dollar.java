@@ -9,11 +9,7 @@ public class Dollar {
 	}
 
 	public Dollar multiplyBy(int factor) {
-		return new Dollar(getAmount() * factor);
-	}
-
-	public int getAmount() {
-		return amount;
+		return new Dollar(amount * factor);
 	}
 
 	@Override
@@ -21,7 +17,7 @@ public class Dollar {
 		if (Dollar.class.isAssignableFrom(obj.getClass())) {
 
 			Dollar dollar = (Dollar) obj;
-			return amount == dollar.getAmount();
+			return amount == dollar.amount;
 		}
 		return false;
 	}
