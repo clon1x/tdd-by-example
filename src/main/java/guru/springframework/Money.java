@@ -1,13 +1,13 @@
 package guru.springframework;
 
-public class Money {
+public abstract class Money {
 
 	protected int amount;
 
 	@Override
 	public boolean equals(Object obj) {
 		Money money = (Money) obj;
-		return amount == money.amount;
+		return amount == money.amount && getClass().equals(obj.getClass());
 	}
 
 }
