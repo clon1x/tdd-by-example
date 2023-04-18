@@ -4,6 +4,7 @@ public class Franc extends Money {
 
 	public Franc(int amount) {
 		this.amount = amount;
+		this.currency = "CHF";
 	}
 
 	public Money multiplyBy(int factor) {
@@ -12,7 +13,7 @@ public class Franc extends Money {
 
 	@Override
 	public String getCurrency() {
-		return "CHF";
+		return currency;
 	}
 
 }

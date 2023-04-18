@@ -4,6 +4,7 @@ public class Dollar extends Money {
 
 	public Dollar(int amount) {
 		this.amount = amount;
+		this.currency = "USD";
 	}
 
 	public Money multiplyBy(int factor) {
@@ -12,7 +13,7 @@ public class Dollar extends Money {
 
 	@Override
 	public String getCurrency() {
-		return "USD";
+		return currency;
 	}
 
 }
