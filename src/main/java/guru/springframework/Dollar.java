@@ -18,7 +18,12 @@ public class Dollar {
 
 	@Override
 	public boolean equals(Object obj) {
-		return true;
+		if (Dollar.class.isAssignableFrom(obj.getClass())) {
+
+			Dollar dollar = (Dollar) obj;
+			return amount == dollar.getAmount();
+		}
+		return false;
 	}
 
 }
