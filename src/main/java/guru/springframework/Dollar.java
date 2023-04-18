@@ -14,12 +14,8 @@ public class Dollar extends Money {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (Dollar.class.isAssignableFrom(obj.getClass())) {
-
-			Dollar dollar = (Dollar) obj;
-			return amount == dollar.amount;
-		}
-		return false;
+		Dollar dollar = (Dollar) obj;
+		return amount == dollar.amount;
 	}
 
 }

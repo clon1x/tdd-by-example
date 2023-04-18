@@ -14,12 +14,8 @@ public class Franc extends Money {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (Franc.class.isAssignableFrom(obj.getClass())) {
-
-			Franc franc = (Franc) obj;
-			return amount == franc.amount;
-		}
-		return false;
+		Franc franc = (Franc) obj;
+		return amount == franc.amount;
 	}
 
 }
