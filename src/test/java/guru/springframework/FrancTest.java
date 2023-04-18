@@ -13,13 +13,14 @@ class FrancTest {
 
 		// given
 		final int AMOUNT = 5;
-		Money money = Money.franc(AMOUNT);
+		Money money = new Money(AMOUNT, "CHF");
+		Money expected = new Money(AMOUNT * 2, "CHF");
 
 		// when
-		Money product = money.multiplyBy(2);
+		Money actual = money.multiplyBy(2);
 
 		// then
-		assertEquals(Money.franc(AMOUNT * 2), product);
+		assertEquals(expected, actual);
 
 	}
 
@@ -29,10 +30,10 @@ class FrancTest {
 		// given
 		final int FRANCS_AMOUNT = 5;
 		final int MULTIPLICATION_FACTOR_1 = 2;
-		final Money EXPECTED_1 = Money.franc(10);
+		final Money EXPECTED_1 = new Money(10, "CHF");
 		final int MULTIPLICATION_FACTOR_2 = 3;
-		final Money EXPECTED_2 = Money.franc(15);
-		Money money = Money.franc(FRANCS_AMOUNT);
+		final Money EXPECTED_2 = new Money(15, "CHF");
+		Money money = new Money(FRANCS_AMOUNT, "CHF");
 
 		// when
 		Money product1 = money.multiplyBy(MULTIPLICATION_FACTOR_1);
@@ -50,10 +51,10 @@ class FrancTest {
 		
 		// given
 		final int VALUE = 1;
-		final Money EXPECTED = Money.franc(VALUE);
+		final Money EXPECTED = new Money(VALUE, "CHF");
 		
 		// when
-		Money actual = Money.franc(VALUE);
+		Money actual = new Money(VALUE, "CHF");
 		
 		// then
 		assertEquals(EXPECTED, actual);
@@ -64,10 +65,10 @@ class FrancTest {
 		
 		// given
 		final int VALUE = 1;
-		final Money franc1 = Money.franc(VALUE);
+		final Money franc1 = new Money(VALUE, "CHF");
 		
 		// when
-		Money franc2 = Money.franc(VALUE + 1);
+		Money franc2 = new Money(VALUE + 1, "CHF");
 		
 		// then
 		assertNotEquals(franc1, franc2);

@@ -14,10 +14,6 @@ public class Money {
 		return new Money(amount, "USD");
 	}
 	
-	public static Money franc(int amount) {
-		return new Money(amount, "CHF");
-	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		Money money = (Money) obj;

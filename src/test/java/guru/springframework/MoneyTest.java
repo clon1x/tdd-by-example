@@ -14,7 +14,7 @@ class MoneyTest {
 		// given 
 		final int AMOUNT = 6;
 		Money money1 = Money.dollar(AMOUNT);
-		Money money2 = Money.franc(AMOUNT);
+		Money money2 = new Money(AMOUNT, "CHF");
 		
 		// when
 		boolean actual = money1.equals(money2);
@@ -29,7 +29,7 @@ class MoneyTest {
 		
 		// given
 		Money dollar = Money.dollar(1);
-		Money franc = Money.franc(1);
+		Money franc = new Money(1, "CHF");
 		String expectedDollar = "USD";
 		String expectedFranc = "CHF";
 		
