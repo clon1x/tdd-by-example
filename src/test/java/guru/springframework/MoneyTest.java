@@ -1,6 +1,8 @@
 package guru.springframework;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
@@ -19,6 +21,27 @@ class MoneyTest {
 		
 		// then
 		assertFalse(actual);
+		
+	}
+	
+	@Test
+	void should_ReturnCorrectCurrency_When_ClassIsDollar() {
+		
+		// given
+		Money dollar = Money.dollar(1);
+		Money franc = Money.franc(1);
+		String expectedDollar = "USD";
+		String expectedFranc = "CHF";
+		
+		// when
+		String actualDollar = dollar.getCurrency();
+		String actualFranc = franc.getCurrency();
+		
+		// then
+		assertAll(
+				() -> assertEquals(expectedDollar, actualDollar),
+				() -> assertEquals(expectedFranc, actualFranc));
+		
 		
 	}
 
