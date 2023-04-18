@@ -11,7 +11,7 @@ class MoneyTest {
 		
 		// given 
 		final int AMOUNT = 6;
-		Money money1 = new Dollar(AMOUNT);
+		Money money1 = Money.dollar(AMOUNT);
 		Money money2 = new Franc(AMOUNT);
 		
 		// when
