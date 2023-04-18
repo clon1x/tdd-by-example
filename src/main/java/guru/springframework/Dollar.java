@@ -10,9 +10,4 @@ public class Dollar extends Money {
 		return Money.dollar(amount * factor);
 	}
 
-	@Override
-	public String getCurrency() {
-		return currency;
-	}
-
 }

@@ -26,6 +26,8 @@ public abstract class Money {
 		return amount == money.amount && getClass().equals(obj.getClass());
 	}
 
-	public abstract String getCurrency();
+	public String getCurrency() {
+		return currency;
+	}
 	
 }
