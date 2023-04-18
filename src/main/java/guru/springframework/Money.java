@@ -31,5 +31,10 @@ public class Money {
 	public String getCurrency() {
 		return currency;
 	}
+
+	@Override
+	public String toString() {
+		return "Money [amount=" + amount + ", currency=" + currency + "]";
+	}
 	
 }
