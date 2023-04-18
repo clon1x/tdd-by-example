@@ -1,6 +1,6 @@
 package guru.springframework;
 
-public class Franc {
+public class Franc extends Money {
 
 	private int amount;
 
