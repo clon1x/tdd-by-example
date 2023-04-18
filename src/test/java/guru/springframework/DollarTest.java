@@ -13,7 +13,7 @@ class DollarTest {
 
 		// given
 		final int AMOUNT = 5;
-		Dollar money = Money.dollar(AMOUNT);
+		Money money = Money.dollar(AMOUNT);
 
 		// when
 		Money product = money.multiplyBy(2);
@@ -29,10 +29,10 @@ class DollarTest {
 		// given
 		final int DOLLARS_AMOUNT = 5;
 		final int MULTIPLICATION_FACTOR_1 = 2;
-		final Dollar EXPECTED_1 = Money.dollar(10);
+		final Money EXPECTED_1 = Money.dollar(10);
 		final int MULTIPLICATION_FACTOR_2 = 3;
-		final Dollar EXPECTED_2 = Money.dollar(15);
-		Dollar money = Money.dollar(DOLLARS_AMOUNT);
+		final Money EXPECTED_2 = Money.dollar(15);
+		Money money = Money.dollar(DOLLARS_AMOUNT);
 
 		// when
 		Money product1 = money.multiplyBy(MULTIPLICATION_FACTOR_1);
@@ -50,10 +50,10 @@ class DollarTest {
 		
 		// given
 		final int VALUE = 1;
-		final Dollar EXPECTED = Money.dollar(VALUE);
+		final Money EXPECTED = Money.dollar(VALUE);
 		
 		// when
-		Dollar actual = Money.dollar(VALUE);
+		Money actual = Money.dollar(VALUE);
 		
 		// then
 		assertEquals(EXPECTED, actual);
@@ -64,10 +64,10 @@ class DollarTest {
 		
 		// given
 		final int VALUE = 1;
-		final Dollar dollar1 = Money.dollar(VALUE);
+		final Money dollar1 = Money.dollar(VALUE);
 		
 		// when
-		Dollar dollar2 = Money.dollar(VALUE + 1);
+		Money dollar2 = Money.dollar(VALUE + 1);
 		
 		// then
 		assertNotEquals(dollar1, dollar2);
