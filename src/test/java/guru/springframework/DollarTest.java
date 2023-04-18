@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
-class MoneyTest {
+class DollarTest {
 
 	@Test
-	void should_GiveCorrectAmount_when_MultipliedByFactor() {
+	void should_GiveCorrectDollarAmount_when_MultipliedByFactor() {
 
 		// given
 		final int AMOUNT = 5;
@@ -24,7 +24,7 @@ class MoneyTest {
 	}
 
 	@Test
-	void should_GiveCorrectAmounts_when_CalledMultipleTimes() {
+	void should_GiveCorrectDollarAmounts_when_CalledMultipleTimes() {
 
 		// given
 		final int DOLLARS_AMOUNT = 5;
