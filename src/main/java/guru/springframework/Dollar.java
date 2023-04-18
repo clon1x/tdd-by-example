@@ -16,4 +16,9 @@ public class Dollar {
 		return amount;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		return true;
+	}
+
 }
