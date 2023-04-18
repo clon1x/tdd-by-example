@@ -10,4 +10,10 @@ public class Dollar extends Money {
 		return Money.dollar(amount * factor);
 	}
 
+	@Override
+	public String getCurrency() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
