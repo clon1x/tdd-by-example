@@ -2,9 +2,9 @@ package guru.springframework;
 
 public class Dollar extends Money {
 
-	public Dollar(int amount) {
+	public Dollar(int amount, String currency) {
 		this.amount = amount;
-		this.currency = "USD";
+		this.currency = currency;
 	}
 
 	public Money multiplyBy(int factor) {
