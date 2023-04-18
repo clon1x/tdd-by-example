@@ -10,10 +10,6 @@ public class Money {
 		this.currency = currency;
 	}
 
-	public static Money dollar(int amount) {
-		return new Money(amount, "USD");
-	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		Money money = (Money) obj;

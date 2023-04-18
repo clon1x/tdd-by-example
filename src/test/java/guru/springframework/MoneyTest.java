@@ -13,7 +13,7 @@ class MoneyTest {
 		
 		// given 
 		final int AMOUNT = 6;
-		Money money1 = Money.dollar(AMOUNT);
+		Money money1 = new Money(AMOUNT, "USD");
 		Money money2 = new Money(AMOUNT, "CHF");
 		
 		// when
@@ -28,7 +28,7 @@ class MoneyTest {
 	void should_ReturnCorrectCurrency_When_ClassIsDollar() {
 		
 		// given
-		Money dollar = Money.dollar(1);
+		Money dollar = new Money(1, "USD");
 		Money franc = new Money(1, "CHF");
 		String expectedDollar = "USD";
 		String expectedFranc = "CHF";
