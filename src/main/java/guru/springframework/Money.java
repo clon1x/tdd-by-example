@@ -8,6 +8,8 @@ public abstract class Money {
 		return new Dollar(amount);
 	}
 	
+	public abstract Money multiplyBy(int factor);
+	
 	@Override
 	public boolean equals(Object obj) {
 		Money money = (Money) obj;
