@@ -16,7 +16,7 @@ class FrancTest {
 		Franc money = new Franc(AMOUNT);
 
 		// when
-		Franc product = money.multiplyBy(2);
+		Money product = money.multiplyBy(2);
 
 		// then
 		assertEquals(new Franc(AMOUNT * 2), product);
@@ -35,8 +35,8 @@ class FrancTest {
 		Franc money = new Franc(FRANCS_AMOUNT);
 
 		// when
-		Franc product1 = money.multiplyBy(MULTIPLICATION_FACTOR_1);
-		Franc product2 = money.multiplyBy(MULTIPLICATION_FACTOR_2);
+		Money product1 = money.multiplyBy(MULTIPLICATION_FACTOR_1);
+		Money product2 = money.multiplyBy(MULTIPLICATION_FACTOR_2);
 
 		// then
 		assertAll(

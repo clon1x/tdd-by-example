@@ -16,7 +16,7 @@ class DollarTest {
 		Dollar money = new Dollar(AMOUNT);
 
 		// when
-		Dollar product = money.multiplyBy(2);
+		Money product = money.multiplyBy(2);
 
 		// then
 		assertEquals(new Dollar(AMOUNT * 2), product);
@@ -35,8 +35,8 @@ class DollarTest {
 		Dollar money = new Dollar(DOLLARS_AMOUNT);
 
 		// when
-		Dollar product1 = money.multiplyBy(MULTIPLICATION_FACTOR_1);
-		Dollar product2 = money.multiplyBy(MULTIPLICATION_FACTOR_2);
+		Money product1 = money.multiplyBy(MULTIPLICATION_FACTOR_1);
+		Money product2 = money.multiplyBy(MULTIPLICATION_FACTOR_2);
 
 		// then
 		assertAll(
