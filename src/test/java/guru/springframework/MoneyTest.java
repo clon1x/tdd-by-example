@@ -117,5 +117,23 @@ class MoneyTest {
 		
 		
 	}
+	
+	@Test
+	void should_ReturnRightAmount_When_AddingSameCurrency() {
+		
+		// given
+		Bank bank = new Bank();
+		Money first = new Money(3, CURRENCY_DOLLAR);
+		Money second = new Money(7, CURRENCY_DOLLAR);
+		Money expected = new Money(10, CURRENCY_DOLLAR);
+		
+		// when
+		Expression sum = first.add(second);
+		Money actual = bank.reduce(sum, CURRENCY_DOLLAR);
+		
+		// then
+		assertEquals(expected, actual);
+		
+	}
 
 }
