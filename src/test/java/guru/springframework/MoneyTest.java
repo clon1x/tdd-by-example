@@ -133,4 +133,21 @@ class MoneyTest {
 		
 	}
 
+	@Test
+	void should_ReturnSum_When_AddingMoney() {
+		
+		// given		
+		Money five = new Money(5, Currency.DOLLAR);
+		
+		// when
+		Expression result = five.add(five);
+		
+		// then
+		Sum sum = (Sum) result;
+		
+		assertAll(
+				() -> assertEquals(five, sum.augmend), 
+				() -> assertEquals(five, sum.addend));
+	}
+	
 }
