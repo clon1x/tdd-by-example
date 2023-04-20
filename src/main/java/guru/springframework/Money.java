@@ -1,6 +1,6 @@
 package guru.springframework;
 
-public class Money {
+public class Money implements Expression {
 
 	protected int amount;
 	protected String currency;
@@ -30,8 +30,7 @@ public class Money {
 	}
 
 	public Expression add(Money addend) {
-		// TODO Auto-generated method stub
-		return null;
+		return new Money(amount + addend.amount, currency) ;
 	}
 	
 }
