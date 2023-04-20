@@ -38,15 +38,18 @@ public class Bank {
 	}
 
 	public void addRate(Currency fromCurrency, Currency toCurrency, Integer conversionFactor) {
+		if (fromCurrency.equals(toCurrency)) return; 
 		CurrencyPair currencyPair = new CurrencyPair(fromCurrency, toCurrency);
 		conversionRates.put(currencyPair, conversionFactor);
 	}
 	
 	public Integer getRate(Currency fromCurrency, Currency toCurrency) throws ConvertionRateNotFoundException {
+		
+		if (fromCurrency.equals(toCurrency)) return 1;
+		
 		CurrencyPair key = new CurrencyPair(fromCurrency, toCurrency);
-		if (conversionRates.containsKey(key)) {
-			return conversionRates.get(key);
-		}
+		if (conversionRates.containsKey(key)) return conversionRates.get(key);
+
 		throw new ConvertionRateNotFoundException(fromCurrency, toCurrency);
 	}
 
