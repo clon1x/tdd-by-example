@@ -34,8 +34,12 @@ public class Money implements Expression {
 	}
 
 	@Override
-	public Money reduce(Currency toCurrency) {
-		return this;
+	public Money reduce(Currency toCurrency, Bank bank) throws ConvertionRateNotFoundException {
+		
+		if (toCurrency.equals(currency)) return this;
+		
+		int amount = this.amount * bank.getRate(getCurrency(), toCurrency);
+		return new Money(amount, toCurrency);
 	}
 	
 }
