@@ -28,5 +28,10 @@ public class Money {
 	public Money multiplyBy(int factor) {
 		return new Money(amount * factor, currency);
 	}
+
+	public Expression add(Money addend) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
