@@ -19,7 +19,15 @@ public class Bank {
 		public int hashCode() {
 			return 1;
 		}
-		
+
+		@Override
+		public boolean equals(Object obj) {
+			if (obj instanceof CurrencyPair) {
+				CurrencyPair other = (CurrencyPair) obj;
+				return fromCurrency == other.fromCurrency &&  toCurrency == other.toCurrency;
+			}
+			return super.equals(obj);
+		}
 		
 	}
 	
@@ -34,8 +42,12 @@ public class Bank {
 		conversionRates.put(currencyPair, conversionFactor);
 	}
 	
-	public Integer getRate(Currency fromCurrency, Currency toCurrency) {
-		return null;
+	public Integer getRate(Currency fromCurrency, Currency toCurrency) throws ConvertionRateNotFoundException {
+		CurrencyPair key = new CurrencyPair(fromCurrency, toCurrency);
+		if (conversionRates.containsKey(key)) {
+			return conversionRates.get(key);
+		}
+		throw new ConvertionRateNotFoundException(fromCurrency, toCurrency);
 	}
 
 }
