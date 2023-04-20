@@ -30,7 +30,12 @@ public class Money implements Expression {
 	}
 
 	public Expression add(Money addend) {
-		return new Money(amount + addend.amount, currency) ;
+		return new Sum(this, addend);
+	}
+
+	@Override
+	public Money reduce(Currency toCurrency) {
+		return this;
 	}
 	
 }
