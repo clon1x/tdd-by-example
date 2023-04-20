@@ -3,9 +3,9 @@ package guru.springframework;
 public class Money implements Expression {
 
 	protected int amount;
-	protected String currency;
-
-	public Money(int amount, String currency) {
+	protected Currency currency;
+	
+	public Money(int amount, Currency currency) {
 		this.amount = amount;
 		this.currency = currency;
 	}
@@ -16,7 +16,7 @@ public class Money implements Expression {
 		return amount == money.amount && currency == money.currency ;
 	}
 
-	public String getCurrency() {
+	public Currency getCurrency() {
 		return currency;
 	}
 

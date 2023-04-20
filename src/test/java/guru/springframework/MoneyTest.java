@@ -9,16 +9,13 @@ import org.junit.jupiter.api.Test;
 
 class MoneyTest {
 
-	private static final String CURRENCY_DOLLAR = "USD";
-	private static final String CURRENCY_FRANC = "CHF";
-
 	@Test
 	void should_GiveCorrectAmount_when_MultipliedByFactor() {
 
 		// given
 		int amount = 5;
-		Money money = new Money(amount, CURRENCY_FRANC);
-		Money expected = new Money(amount * 2, CURRENCY_FRANC);
+		Money money = new Money(amount, Currency.FRANC);
+		Money expected = new Money(amount * 2, Currency.FRANC);
 
 		// when
 		Money actual = money.multiplyBy(2);
@@ -35,9 +32,9 @@ class MoneyTest {
 		int amount = 5;
 		int factor1 = 2;
 		int factor2 = 3;
-		Money expected1 = new Money(10, CURRENCY_FRANC);
-		Money expected2 = new Money(15, CURRENCY_FRANC);
-		Money money = new Money(amount, CURRENCY_FRANC);
+		Money expected1 = new Money(10, Currency.FRANC);
+		Money expected2 = new Money(15, Currency.FRANC);
+		Money money = new Money(amount, Currency.FRANC);
 
 		// when
 		Money product1 = money.multiplyBy(factor1);
@@ -55,7 +52,7 @@ class MoneyTest {
 		
 		// given
 		int value = 1;
-		String currency = CURRENCY_FRANC;
+		Currency currency = Currency.FRANC;
 		Money expected = new Money(value, currency);
 		
 		// when
@@ -70,7 +67,7 @@ class MoneyTest {
 		
 		// given
 		int amount = 1;
-		String currency = CURRENCY_FRANC;
+		Currency currency = Currency.FRANC;
 		Money franc1 = new Money(amount, currency);
 		
 		// when
@@ -85,8 +82,8 @@ class MoneyTest {
 		
 		// given 
 		int amount = 6;
-		Money money1 = new Money(amount, CURRENCY_DOLLAR);
-		Money money2 = new Money(amount, CURRENCY_FRANC);
+		Money money1 = new Money(amount, Currency.DOLLAR);
+		Money money2 = new Money(amount, Currency.FRANC);
 		
 		// when
 		boolean actual = money1.equals(money2);
@@ -101,14 +98,14 @@ class MoneyTest {
 		
 		// given
 		int amount = 1;
-		Money dollar = new Money(amount, CURRENCY_DOLLAR);
-		Money franc = new Money(amount, CURRENCY_FRANC);
-		String expectedDollarCurrency = CURRENCY_DOLLAR;
-		String expectedFrancCurrency = CURRENCY_FRANC;
+		Money dollar = new Money(amount, Currency.DOLLAR);
+		Money franc = new Money(amount, Currency.FRANC);
+		Currency expectedDollarCurrency = Currency.DOLLAR;
+		Currency expectedFrancCurrency = Currency.FRANC;
 		
 		// when
-		String actualDollarCurrency = dollar.getCurrency();
-		String actualFrancCurrency = franc.getCurrency();
+		Currency actualDollarCurrency = dollar.getCurrency();
+		Currency actualFrancCurrency = franc.getCurrency();
 		
 		// then
 		assertAll(
@@ -123,13 +120,13 @@ class MoneyTest {
 		
 		// given
 		Bank bank = new Bank();
-		Money first = new Money(3, CURRENCY_DOLLAR);
-		Money second = new Money(7, CURRENCY_DOLLAR);
-		Money expected = new Money(10, CURRENCY_DOLLAR);
+		Money first = new Money(3, Currency.DOLLAR);
+		Money second = new Money(7, Currency.DOLLAR);
+		Money expected = new Money(10, Currency.DOLLAR);
 		
 		// when
 		Expression sum = first.add(second);
-		Money actual = bank.reduce(sum, CURRENCY_DOLLAR);
+		Money actual = bank.reduce(sum, Currency.DOLLAR);
 		
 		// then
 		assertEquals(expected, actual);
