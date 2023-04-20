@@ -33,8 +33,8 @@ public class Bank {
 	
 	private Map<CurrencyPair, Integer> conversionRates = new HashMap<>();
 
-	public Money reduce(Expression source, Currency toCurrency) {
-		return source.reduce(toCurrency);
+	public Money reduce(Expression source, Currency toCurrency) throws ConvertionRateNotFoundException {
+		return source.reduce(toCurrency, this);
 	}
 
 	public void addRate(Currency fromCurrency, Currency toCurrency, Integer conversionFactor) {

@@ -116,7 +116,7 @@ class MoneyTest {
 	}
 	
 	@Test
-	void should_ReturnRightAmount_When_AddingSameCurrency() {
+	void should_ReturnRightAmount_When_AddingSameCurrency() throws ConvertionRateNotFoundException {
 		
 		// given
 		Bank bank = new Bank();

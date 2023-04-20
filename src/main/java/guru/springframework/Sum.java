@@ -10,8 +10,13 @@ public class Sum implements Expression {
 		this.addend = addend;
 	}
 	
-	public Money reduce(Currency toCurrency) {
-		int amount = augmend.amount + addend.amount;
+	@Override
+	public Money reduce(Currency toCurrency, Bank bank) throws ConvertionRateNotFoundException {
+		Money reducedAugmend = augmend.reduce(toCurrency, bank);
+		Money reducedAddend = addend.reduce(toCurrency, bank);
+
+		int amount = reducedAugmend.amount + reducedAddend.amount;
+
 		return new Money(amount, toCurrency);
 	}
 	

@@ -1,20 +1,28 @@
 package guru.springframework;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class BankTest {
 
+	private Bank bank;
+
+
+	@BeforeEach
+	void setup() {
+		bank = new Bank();
+		bank.addRate(Currency.FRANC, Currency.DOLLAR, 2);
+	}
 	
 	@Test
-	void should_ReturnRightMoney_When_ReducingSumSameCurrency() {
+	void should_ReturnRightMoney_When_ReducingSumSameCurrency() throws ConvertionRateNotFoundException {
 		
 		// given
 		Expression sum = new Sum(
 				new Money(3, Currency.DOLLAR), 
 				new Money(4, Currency.DOLLAR));
-		Bank bank = new Bank();
 		
 		// when
 		Money result = bank.reduce(sum, Currency.DOLLAR);
@@ -24,15 +32,13 @@ class BankTest {
 	}
 	
 	@Test
-	void should_ReturnRightMoney_When_ReducingSumDifferentCurrency() {
+	void should_ReturnRightMoney_When_ReducingSumDifferentCurrency() throws ConvertionRateNotFoundException {
 		
 		// given
 		Expression sum = new Sum(
 				new Money(3, Currency.DOLLAR), 
 				new Money(4, Currency.FRANC));
-		Bank bank = new Bank();
-		bank.addRate(Currency.FRANC, Currency.DOLLAR, 2);
-		Money expected = new Money(10, Currency.DOLLAR);	// 3 * 2 + 4
+		Money expected = new Money(11, Currency.DOLLAR);	// 3 + 4 * 2
 		
 		// when
 		Money result = bank.reduce(sum, Currency.DOLLAR);
@@ -43,10 +49,9 @@ class BankTest {
 
 	
 	@Test
-	void should_ReturnSame_When_ReducingMoney() {
+	void should_ReturnSame_When_ReducingMoney() throws ConvertionRateNotFoundException {
 		
 		// given
-		Bank bank = new Bank();
 		Money money = new Money(1, Currency.DOLLAR);
 		
 		// when
