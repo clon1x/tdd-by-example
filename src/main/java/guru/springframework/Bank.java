@@ -2,10 +2,10 @@ package guru.springframework;
 
 public class Bank {
 
-	public Money reduce(Expression expression, Currency currency) {
+	public Money reduce(Expression expression, Currency toCurrency) {
+		if (expression instanceof Money) return (Money) expression;
 		Sum sum = (Sum) expression;
-		int amount = sum.augmend.amount + sum.addend.amount;
-		return new Money(amount, currency);
+		return sum.reduce(toCurrency);
 	}
 
 }
