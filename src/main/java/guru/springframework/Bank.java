@@ -6,4 +6,9 @@ public class Bank {
 		return source.reduce(toCurrency);
 	}
 
+	public void addRate(Currency franc, Currency dollar, int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

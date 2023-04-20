@@ -8,7 +8,7 @@ class BankTest {
 
 	
 	@Test
-	void should_ReturnRightMoney_When_ReducingSum() {
+	void should_ReturnRightMoney_When_ReducingSumSameCurrency() {
 		
 		// given
 		Expression sum = new Sum(
@@ -22,6 +22,25 @@ class BankTest {
 		// then
 		assertEquals(new Money(7, Currency.DOLLAR), result);
 	}
+	
+	@Test
+	void should_ReturnRightMoney_When_ReducingSumDifferentCurrency() {
+		
+		// given
+		Expression sum = new Sum(
+				new Money(3, Currency.DOLLAR), 
+				new Money(4, Currency.FRANC));
+		Bank bank = new Bank();
+		bank.addRate(Currency.FRANC, Currency.DOLLAR, 2);
+		Money expected = new Money(10, Currency.DOLLAR);	// 3 * 2 + 4
+		
+		// when
+		Money result = bank.reduce(sum, Currency.DOLLAR);
+		
+		// then
+		assertEquals(expected, result);
+	}
+
 	
 	@Test
 	void should_ReturnSame_When_ReducingMoney() {
